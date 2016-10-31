@@ -9,46 +9,73 @@
 import UIKit
 
 class PostDetailTableViewController: UITableViewController {
+    @IBAction func shareButtonTapped(_ sender: Any) {
+    }
+    @IBAction func followPostButtonTapped(_ sender: Any) {
+    }
+    @IBOutlet weak var detailIamge: UIImageView!
 
+    
+    
+    @IBAction func addCommentTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Comment", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            
+            textField.placeholder = "Test"
+        }
+        
+        let addComment = UIAlertAction(title: "Add Comment", style: .default) { (action) in
+            
+            guard let commentText = alert.textFields?.first?.text,
+                let post = self.post else { return }
+            
+            PostController.shared.addComment(post: post, commentText: commentText)
+            self.updateView()
+        }
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        alert.addAction(addComment)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     var post: Post?
 
     
+    private func updateView() {
+        guard let post = post, isViewLoaded else { return }
+        
+        detailIamge.image = post.photo
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        updateView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return post?.comments.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
 
-        // Configure the cell...
+        guard let post = post else { return cell }
+        let comment = post.comments[indexPath.row]
+        cell.textLabel?.text = comment.text
+//       cell.detailTextLabel?.text = comment.cloudKitRecordID?.recordName
 
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

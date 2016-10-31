@@ -32,7 +32,7 @@
 		D9BD1E7A1DC7A5A400905AB7 /* Timeline_PT2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Timeline_PT2.entitlements; sourceTree = "<group>"; };
 		D9BD1E7C1DC7A5A600905AB7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D9BD1E7E1DC7A93700905AB7 /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
-		D9BD1E811DC7AE7800905AB7 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		D9BD1E811DC7AE7800905AB7 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = ../PostTableViewCell.swift; sourceTree = "<group>"; };
 		D9C277601DC79A9B0080C98E /* Timeline_PT2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline_PT2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C277631DC79A9B0080C98E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9C277681DC79A9B0080C98E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 		D9C277571DC79A9B0080C98E = {
 			isa = PBXGroup;
 			children = (
-				D9BD1E811DC7AE7800905AB7 /* PostTableViewCell.swift */,
 				D9C277621DC79A9B0080C98E /* Timeline_PT2 */,
 				D9C277611DC79A9B0080C98E /* Products */,
 				D9BD1E7B1DC7A5A600905AB7 /* Frameworks */,
@@ -115,6 +114,7 @@
 				D9BD1E801DC7A94400905AB7 /* ModelController */,
 				D9BD1E6C1DC7A09B00905AB7 /* ViewController */,
 				D9C277631DC79A9B0080C98E /* AppDelegate.swift */,
+				D9BD1E811DC7AE7800905AB7 /* PostTableViewCell.swift */,
 				D9C277671DC79A9B0080C98E /* Main.storyboard */,
 				D9C2776A1DC79A9B0080C98E /* Assets.xcassets */,
 				D9C2776C1DC79A9B0080C98E /* LaunchScreen.storyboard */,

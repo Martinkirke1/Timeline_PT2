@@ -23,11 +23,6 @@ class Post {
         self.photoData = photoData
         self.timestamp = timestamp
         self.comments = comments
-        
-        
-        
-        
-        
     }
     
     

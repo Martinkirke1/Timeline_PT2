@@ -11,25 +11,23 @@ import UIKit
 
 class PostController {
     
-    static let Shared = PostController()
+    static let shared = PostController()
     
-    var posts = [Post]()
+    var posts: [Post] = []
     
     
     func createPost(photo: UIImage, caption: String) {
         guard let data = UIImageJPEGRepresentation(photo, 1) else { return }
         
-        
         let post = Post(photoData: data)
+        let comment = Comment(text: caption, post: post)
         posts.append(post)
+        post.comments.append(comment)
     }
     
-   func addComment(post: Post, text: String, completion: @escaping ((Comment) -> Void) = { _ in }) -> Comment {
+    func addComment( post: Post, commentText: String) {
     
-    let comment = Comment(text: text, post: post)
+    let comment = Comment(text: commentText, post: post)
     post.comments.append(comment)
-    
-    
-        return comment
     }
 }

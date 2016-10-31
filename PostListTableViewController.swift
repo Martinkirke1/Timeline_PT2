@@ -11,28 +11,24 @@ import UIKit
 class PostListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return PostController.Shared.posts.count
+        return PostController.shared.posts.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
 
-        let posts = PostController.Shared.posts
+        let posts = PostController.shared.posts
         cell.post = posts[indexPath.row]
         return cell
     }
@@ -84,7 +80,7 @@ class PostListTableViewController: UITableViewController {
             if let detailViewController = segue.destination as? PostDetailTableViewController,
                 let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                 
-                let posts = PostController.Shared.posts
+                let posts = PostController.shared.posts
                 detailViewController.post = posts[selectedIndexPath.row]
             }
         }
